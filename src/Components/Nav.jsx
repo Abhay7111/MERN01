@@ -23,11 +23,13 @@ function Nav() {
             <NavLink to="/" className={({ isActive }) => isActive ? "text-sm text-blue-500 font-medium" : "text-sm text-gray-700 font-medium hover:text-indigo-500"}>Home</NavLink>
             <NavLink to="/authors" className={({ isActive }) => isActive ? "text-sm text-blue-500 font-medium" : "text-sm text-gray-700 font-medium hover:text-indigo-500"}>Authors</NavLink>
             <NavLink to="/create-post" className={({ isActive }) => isActive ? "text-sm text-blue-500 font-medium" : "text-sm text-gray-700 font-medium hover:text-indigo-500"}>New Post</NavLink>
+            <NavLink to="/user-profile/:id" className={({ isActive }) => isActive ? "text-sm text-blue-500 font-medium" : "text-sm text-gray-700 font-medium hover:text-indigo-500"}>Profile</NavLink>
             <NavLink to="/login" className={({ isActive }) => isActive ? "text-sm text-blue-500 font-medium" : "text-sm text-gray-700 font-medium hover:text-indigo-500"}>Login</NavLink>
             <NavLink to="/register" className={({ isActive }) => isActive ? "relative text-blue-500 transition duration-300" : "relative text-gray-700 hover:text-gray-600 transition duration-300"}>
               <span className="absolute inset-0 transform skew-x-12 bg-indigo-100"></span>
               <span className="relative text-sm font-medium">Sign Up</span>
             </NavLink>
+            <button onClick={handleLogout} className="text-sm text-gray-700 font-medium hover:text-indigo-500">Logout</button>
           </div>
           <div className="md:hidden">
             <button 
@@ -48,11 +50,13 @@ function Nav() {
               <NavLink to="/" className={({ isActive }) => isActive ? "block text-sm text-blue-500 font-medium" : "block text-sm text-gray-700 font-medium hover:text-indigo-500"}>Home</NavLink>
               <NavLink to="/authors" className={({ isActive }) => isActive ? "block text-sm text-blue-500 font-medium" : "block text-sm text-gray-700 font-medium hover:text-indigo-500"}>Authors</NavLink>
               <NavLink to="/create-post" className={({ isActive }) => isActive ? "block text-sm text-blue-500 font-medium" : "block text-sm text-gray-700 font-medium hover:text-indigo-500"}>New Post</NavLink>
+              <NavLink to="/user-profile/:id" className={({ isActive }) => isActive ? "block text-sm text-blue-500 font-medium" : "block text-sm text-gray-700 font-medium hover:text-indigo-500"}>Profile</NavLink>
               <NavLink to="/login" className={({ isActive }) => isActive ? "block text-sm text-blue-500 font-medium" : "block text-sm text-gray-700 font-medium hover:text-indigo-500"}>Login</NavLink>
               <NavLink to="/register" className={({ isActive }) => isActive ? "block relative text-blue-500 transition duration-300" : "block relative text-gray-700 hover:text-gray-600 transition duration-300"}>
                 <span className="absolute inset-0 transform skew-x-12 bg-indigo-100"></span>
                 <span className="relative text-sm font-medium">Sign Up</span>
               </NavLink>
+              <button onClick={handleLogout} className="block text-sm text-gray-700 font-medium hover:text-indigo-500">Logout</button>
             </div>
           </div>
         )}
