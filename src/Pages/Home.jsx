@@ -60,9 +60,11 @@ function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-tr from-blue-200 to-purple-200">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-8">Welcome to Our Design Blog</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Welcome to Our Design Blog</h1>
+        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-600">Explore the Latest Trends and Insights</h2>
+        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-600">Discover Creative Inspiration Daily</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post) => (
             <div key={post.id} className="bg-white cursor-pointer rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.01] hover:shadow-xl">
