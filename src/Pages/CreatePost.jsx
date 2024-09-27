@@ -86,26 +86,84 @@ function CreatePost() {
                   name="content"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
-                  rows="6"
+                  rows="12"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Content"
+                  placeholder="Write your blog post here..."
                   required
                 ></textarea>
-                <div className="absolute top-2 right-2 flex space-x-2">
-                  <button type="button" className="p-1 bg-gray-200 rounded hover:bg-gray-300" onClick={() => document.execCommand('bold')}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 12h12M6 12h12" />
-                    </svg>
+                <div className="absolute top-2 right-2 flex flex-wrap space-x-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const textarea = document.getElementById('content');
+                      const start = textarea.selectionStart;
+                      const end = textarea.selectionEnd;
+                      const selectedText = content.substring(start, end);
+                      const newContent = content.substring(0, start) + `# ${selectedText}` + content.substring(end);
+                      setContent(newContent);
+                    }}
+                    className="p-1 rounded bg-gray-200 hover:bg-gray-300 mb-2"
+                    title="Add Heading"
+                  >
+                    H
                   </button>
-                  <button type="button" className="p-1 bg-gray-200 rounded hover:bg-gray-300" onClick={() => document.execCommand('italic')}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const textarea = document.getElementById('content');
+                      const start = textarea.selectionStart;
+                      const end = textarea.selectionEnd;
+                      const selectedText = content.substring(start, end);
+                      const newContent = content.substring(0, start) + `**${selectedText}**` + content.substring(end);
+                      setContent(newContent);
+                    }}
+                    className="p-1 rounded bg-gray-200 hover:bg-gray-300 mb-2"
+                    title="Bold"
+                  >
+                    <strong>B</strong>
                   </button>
-                  <button type="button" className="p-1 bg-gray-200 rounded hover:bg-gray-300" onClick={() => document.execCommand('underline')}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14" />
-                    </svg>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const textarea = document.getElementById('content');
+                      const start = textarea.selectionStart;
+                      const end = textarea.selectionEnd;
+                      const selectedText = content.substring(start, end);
+                      const newContent = content.substring(0, start) + `*${selectedText}*` + content.substring(end);
+                      setContent(newContent);
+                    }}
+                    className="p-1 rounded bg-gray-200 hover:bg-gray-300 mb-2"
+                    title="Italic"
+                  >
+                    <em>I</em>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const textarea = document.getElementById('content');
+                      const start = textarea.selectionStart;
+                      const newContent = content.substring(0, start) + "\n- " + content.substring(start);
+                      setContent(newContent);
+                    }}
+                    className="p-1 rounded bg-gray-200 hover:bg-gray-300 mb-2"
+                    title="Add List Item"
+                  >
+                    •
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const textarea = document.getElementById('content');
+                      const start = textarea.selectionStart;
+                      const end = textarea.selectionEnd;
+                      const selectedText = content.substring(start, end);
+                      const newContent = content.substring(0, start) + `[${selectedText}](url)` + content.substring(end);
+                      setContent(newContent);
+                    }}
+                    className="p-1 rounded bg-gray-200 hover:bg-gray-300 mb-2"
+                    title="Add Link"
+                  >
+                    🔗
                   </button>
                 </div>
               </div>
